@@ -2,6 +2,7 @@ package br.com.brunosan.todolist.controller;
 
 import br.com.brunosan.todolist.entity.Todo;
 import br.com.brunosan.todolist.service.TodoService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class TodoController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     List<Todo> create(@RequestBody Todo todo) {
         return todoService.create(todo);
     }
